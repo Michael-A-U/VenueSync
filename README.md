@@ -25,3 +25,4 @@ A web app for council venues (e.g., libraries, community centers) to input headc
   - Installed Oracle Database 23ai Free, SQL Server Express with SSRS and SSDT, Python, GitHub Desktop, and WAVE Chrome extension. Configured Azure AD tenant (`VenueSyncOrg.onmicrosoft.com`) for authentication.
   - Established a public GitHub repository (`VenueSync`) for transparent version control and collaboration.
   - Configured `.gitignore` (Visual Studio template, extended for Python `__pycache__`, `appsettings.json`, and database files) to exclude sensitive data and build artifacts, ensuring security.
+  - Updated `.gitignore` to include ASP.NET Core configs (`appsettings.json`, `appsettings.*.json`), Oracle files (`*.dbf`), Azure deployment settings (`.azure/`), and Python virtual environments (`env/`, `venv/`) for comprehensive exclusion of sensitive and temporary files.
