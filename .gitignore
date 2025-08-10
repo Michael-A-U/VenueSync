@@ -416,3 +416,17 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# ASP.NET Core
+appsettings.json
+appsettings.*.json
+
+# Oracle Database
+*.dbf
+
+# Azure
+.azure/
+
+# Python Virtual Environments
+env/
+venv/
