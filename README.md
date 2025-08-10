@@ -49,3 +49,4 @@ Doormen log in to the VenueSync web app on their smartphones using personal Azur
   - Updated `.gitignore` to include ASP.NET Core configs (`appsettings.json`, `appsettings.*.json`), Oracle files (`*.dbf`), Azure deployment settings (`.azure/`), and Python virtual environments (`env/`, `venv/`) for comprehensive exclusion of sensitive and temporary files.
   - Designed and implemented SQL Server schema (`Users`, `Venues`, `Headcounts` tables) based on doorman workflow (individual Azure AD login, mobile headcount submission). Committed schema to repository under `Database/sqlserver_schema.sql`.
   - Added workflow summary to README to clarify doorman user flow, aligning schema with real-world use case.
+  - Generated ERD for SQL Server schema, saved as `Database/VenueSyncERD.png` to visualize table relationships.
