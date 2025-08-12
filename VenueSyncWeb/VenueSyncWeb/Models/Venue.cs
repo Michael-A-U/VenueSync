@@ -2,8 +2,9 @@
 {
     public class Venue
     {
-        public int VenueID { get; set; } // Primary key, auto-incremented
-        public string VenueName { get; set; } = null!; // Required, e.g., Central Library
-        public string Location { get; set; } = null!; // Required, e.g., Stevenage
+        public int VenueID { get; set; }
+        public string VenueName { get; set; } = null!;
+        public string Location { get; set; } = null!;
+        public string VenueType { get; set; } = null!;
     }
 }
