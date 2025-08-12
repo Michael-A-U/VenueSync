@@ -1,0 +1,27 @@
+﻿@model VenueSyncWeb.Models.Headcount
+<h2>Submit Headcount</h2>
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="VenueID">Venue</label>
+        <select asp-for="VenueID" class="form-control" asp-items="ViewBag.VenueID"></select>
+        <span asp-validation-for="VenueID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Count">Headcount</label>
+        <input asp-for="Count" class="form-control" type="number" min="0" />
+        <span asp-validation-for="Count" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Notes">Notes (optional)</label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+        <span asp-validation-for="Notes" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
