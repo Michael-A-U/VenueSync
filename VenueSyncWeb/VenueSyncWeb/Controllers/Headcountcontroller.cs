@@ -9,36 +9,31 @@ namespace VenueSyncWeb.Controllers
     {
         private readonly VenueSyncDbContext _context;
 
-        // Inject DbContext to access the database
         public HeadcountController(VenueSyncDbContext context)
         {
             _context = context;
         }
 
-        // GET: /Headcount/Create (shows the form)
         public IActionResult Create()
         {
-            // Populate venue dropdown with VenueID and VenueName
-            ViewBag.VenueID = new SelectList(_context.Venues, "VenueID", "VenueName");
+            ViewBag.VenueID = new SelectList(_context.Venues, "VenueID", "VenueName", null, "VenueType");
             return View();
         }
 
-        // POST: /Headcount/Create (handles form submission)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Headcount headcount)
         {
-            if (ModelState.IsValid) // Check if input meets validation rules
+            if (ModelState.IsValid)
             {
-                headcount.UserID = 1; // Mock user ID (Azure AD later)
-                headcount.Timestamp = DateTime.Now; // Set current time
-                _context.Add(headcount); // Add to Headcounts table
-                _context.SaveChanges(); // Save to database
+                headcount.UserID = 1; // Mock user ID
+                headcount.Timestamp = DateTime.Now;
+                _context.Add(headcount);
+                _context.SaveChanges();
                 TempData["Message"] = "Headcount recorded successfully.";
-                return RedirectToAction(nameof(Create)); // Reload form
+                return RedirectToAction(nameof(Create));
             }
-            // If validation fails, reload form with errors
-            ViewBag.VenueID = new SelectList(_context.Venues, "VenueID", "VenueName", headcount.VenueID);
+            ViewBag.VenueID = new SelectList(_context.Venues, "VenueID", "VenueName", headcount.VenueID, "VenueType");
             return View(headcount);
         }
     }
